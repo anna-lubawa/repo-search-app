@@ -2,6 +2,8 @@ package com.annalubawa.reposearchapp.di
 
 import com.annalubawa.reposearchapp.BuildConfig
 import com.annalubawa.reposearchapp.data.network.client.GithubRepoApiService
+import com.annalubawa.reposearchapp.data.network.mapper.EntityMapper
+import com.annalubawa.reposearchapp.data.network.mapper.EntityMapperImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -43,5 +45,9 @@ object AppModule {
     @Singleton
     @Provides
     fun provideApiClient(retrofit: Retrofit): GithubRepoApiService = retrofit.create(GithubRepoApiService::class.java)
+
+    @Singleton
+    @Provides
+    fun provideEntityMapper(entityMapper: EntityMapperImpl): EntityMapper = entityMapper
 
 }
