@@ -4,7 +4,7 @@ import com.annalubawa.reposearchapp.data.network.model.ApiSearchResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface GithubRepoApiClient {
+interface GithubRepoApiService {
 
     @GET("search/repositories")
     suspend fun getRepositories(@Query("q") query: String) : ApiSearchResponse
