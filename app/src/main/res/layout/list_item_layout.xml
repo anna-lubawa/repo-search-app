@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/backgroundImageView"
+        android:layout_width="0dp"
+        android:layout_height="92dp"
+        android:layout_marginBottom="9dp"
+        android:background="@drawable/list_item_background"
+        android:contentDescription="@string/repository_list_item_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/backgroundImageView"
+        app:layout_constraintStart_toStartOf="@+id/backgroundImageView"
+        app:layout_constraintTop_toTopOf="@+id/backgroundImageView" >
+
+        <ImageView
+            android:id="@+id/avatarImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/repository_owner_avatar"
+            tools:srcCompat="@tools:sample/avatars" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/repoTitleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="26dp"
+        android:contentDescription="@string/repository_name"
+        android:lineHeight="22dp"
+        android:textColor="@color/colorTextBlack"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/cardView"
+        app:layout_constraintTop_toTopOf="@+id/backgroundImageView"
+        tools:text="Repo title" />
+
+    <ImageView
+        android:id="@+id/starIcon"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:contentDescription="@string/star_icon"
+        app:layout_constraintBottom_toBottomOf="@+id/starsNumTextView"
+        app:layout_constraintStart_toEndOf="@+id/cardView"
+        app:layout_constraintTop_toBottomOf="@+id/repoTitleTextView"
+        app:srcCompat="@drawable/ic_star_icon" />
+
+    <TextView
+        android:id="@+id/starsNumTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:contentDescription="@string/number_of_repository_stars"
+        android:lineHeight="22dp"
+        android:textColor="@color/colorTextLight"
+        app:layout_constraintStart_toEndOf="@+id/starIcon"
+        app:layout_constraintTop_toBottomOf="@+id/repoTitleTextView"
+        tools:text="483" />
+
+    <ImageView
+        android:id="@+id/forwardIcon"
+        android:layout_width="9dp"
+        android:layout_height="13dp"
+        android:layout_marginTop="39dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="@string/forward_icon_in_repositories_list_item"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_forward_icon" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,4 +2,10 @@
     <string name="app_name">repo-search-app</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="repository_list_item_background">Repository list item background</string>
+    <string name="repository_owner_avatar">Repository owner avatar</string>
+    <string name="repository_name">Repository name</string>
+    <string name="star_icon">Star icon</string>
+    <string name="number_of_repository_stars">Number of repository stars</string>
+    <string name="forward_icon_in_repositories_list_item">Forward icon in repositories list item</string>
 </resources>
