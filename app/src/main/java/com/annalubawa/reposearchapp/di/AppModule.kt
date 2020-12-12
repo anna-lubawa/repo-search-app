@@ -42,6 +42,6 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideApiClient(retrofit: Retrofit) = retrofit.create(GithubRepoApiService::class.java)
+    fun provideApiClient(retrofit: Retrofit): GithubRepoApiService = retrofit.create(GithubRepoApiService::class.java)
 
 }
