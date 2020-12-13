@@ -18,5 +18,9 @@
         android:id="@+id/repositoryDetailsFragment"
         android:name="com.annalubawa.reposearchapp.ui.RepositoryDetailsFragment"
         android:label="fragment_repository_details"
-        tools:layout="@layout/fragment_repository_details" />
+        tools:layout="@layout/fragment_repository_details" >
+        <argument
+            android:name="repository"
+            app:argType="com.annalubawa.reposearchapp.domain.model.Repository" />
+    </fragment>
 </navigation>
