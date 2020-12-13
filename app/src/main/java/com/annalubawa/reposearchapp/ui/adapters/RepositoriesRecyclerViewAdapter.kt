@@ -25,6 +25,9 @@ class RepositoriesRecyclerViewAdapter (
 
     override fun onBindViewHolder(holder: RepositoriesViewHolder, position: Int) {
         holder.repoContainerBinding.repo = items[position]
+        holder.repoContainerBinding.root.setOnClickListener {
+            onItemSelected(items[position])
+        }
     }
 
     override fun getItemCount(): Int  = items.size

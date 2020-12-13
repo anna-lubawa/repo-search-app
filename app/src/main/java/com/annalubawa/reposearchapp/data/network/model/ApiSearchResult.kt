@@ -2,7 +2,7 @@ package com.annalubawa.reposearchapp.data.network.model
 
 import com.google.gson.annotations.SerializedName
 
-data class ApiSearchResponse (
+data class ApiSearchResult (
     @SerializedName("total_count")
     val totalCount: Int,
 
