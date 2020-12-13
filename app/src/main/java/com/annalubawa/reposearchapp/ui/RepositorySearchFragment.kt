@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -29,10 +28,6 @@ class RepositorySearchFragment : Fragment() {
 
     private lateinit var navController: NavController
     private lateinit var viewModel: RepositorySearchViewModel
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -90,7 +85,9 @@ class RepositorySearchFragment : Fragment() {
     }
 
     private fun onItemSelected(item: Repository) {
-        Toast.makeText(requireContext(), item.name, Toast.LENGTH_SHORT).show()
+        val action = RepositorySearchFragmentDirections
+            .actionRepositorySearchFragmentToRepositoryDetailsFragment(item)
+        navController.navigate(action)
     }
 
     private fun onLoading() {

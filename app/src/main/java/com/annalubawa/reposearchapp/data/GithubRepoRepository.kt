@@ -2,6 +2,7 @@ package com.annalubawa.reposearchapp.data
 
 import com.annalubawa.reposearchapp.data.network.client.GithubRepoApiService
 import com.annalubawa.reposearchapp.data.network.mapper.EntityMapper
+import com.annalubawa.reposearchapp.domain.model.Commit
 import com.annalubawa.reposearchapp.domain.model.Repository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
@@ -19,6 +20,23 @@ class GithubRepoRepository @Inject constructor(
             emit(repos)
         }
         .catch { emit(emptyList()) }
+        .flowOn(Dispatchers.IO)
+    }
+
+    suspend fun getCommits(owner: String, repoName: String): Flow<List<Commit>> {
+        return flow {
+            val commitsResult = apiService.getRepositoryCommits(owner, repoName)
+            val commits = ArrayList<Commit>()
+
+            commitsResult
+                .sortedByDescending { it.commit.committer.date }
+                .take(3)
+                .map { mapper.mapToCommitEntity(it) }
+                .toCollection(commits)
+
+            emit(commits)
+        }
+        .catch { emit(ArrayList()) }
         .flowOn(Dispatchers.IO)
     }
 
