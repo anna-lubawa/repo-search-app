@@ -10,8 +10,6 @@ import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
 
 
-@FlowPreview
-@ExperimentalCoroutinesApi
 class RepositorySearchViewModel @ViewModelInject constructor(
     private val repository: GithubRepoRepository
 ): ViewModel() {

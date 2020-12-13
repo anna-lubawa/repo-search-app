@@ -8,4 +8,5 @@
     <string name="star_icon">Star icon</string>
     <string name="number_of_repository_stars">Number of repository stars</string>
     <string name="forward_icon_in_repositories_list_item">Forward icon in repositories list item</string>
+    <string name="no_results_found">No results found.</string>
 </resources>
