@@ -15,7 +15,7 @@ class GithubRepoRepository @Inject constructor(
     suspend fun getRepositories(query: String): Flow<List<Repository>> {
         return flow {
             val searchResult = apiService.getRepositories(query)
-            val repos = mapper.mapApiRepositoryListToRepositoryEntityList(searchResult.items)
+            val repos = mapper.mapToRepositoryEntityList(searchResult.items)
             emit(repos)
         }
         .catch { emit(emptyList()) }
