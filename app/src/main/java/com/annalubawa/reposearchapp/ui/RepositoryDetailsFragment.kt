@@ -76,7 +76,7 @@ class RepositoryDetailsFragment : Fragment() {
         viewOnlineButton.setOnClickListener {
             val url = viewModel.githubRepo.repoUrl
             val viewOnlineIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-            if (viewOnlineIntent.resolveActivity(requireActivity().packageManager) != null) {
+            if(viewOnlineIntent.resolveActivity(requireActivity().packageManager) != null) {
                 startActivity(viewOnlineIntent)
             }
         }
