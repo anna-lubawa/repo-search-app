@@ -57,6 +57,7 @@ class RepositorySearchFragment : Fragment() {
             android.widget.SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String): Boolean {
                     onLoading()
+                    viewModel.currentQuery = query
                     viewModel.getRepositories(query)
                     return false
                 }
@@ -74,6 +75,11 @@ class RepositorySearchFragment : Fragment() {
             viewModel.repos.clear()
             viewModel.repos.addAll(it)
             repositoriesRecyclerView.adapter!!.notifyDataSetChanged()
+
+            if(viewModel.previousQuery != viewModel.currentQuery) {
+                repositoriesRecyclerView.scrollToPosition(0)
+                viewModel.previousQuery = viewModel.currentQuery
+            }
 
             if(it.isEmpty())
                 noResultsTextView.visibility = View.VISIBLE

@@ -15,6 +15,8 @@ class RepositorySearchViewModel @ViewModelInject constructor(
 ): ViewModel() {
 
     val repos = ArrayList<Repository>()
+    var previousQuery = ""
+    var currentQuery = ""
 
     private val _repositories = MutableLiveData<List<Repository>>()
     val repositories = _repositories
