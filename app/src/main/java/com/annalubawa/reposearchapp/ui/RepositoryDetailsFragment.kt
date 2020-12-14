@@ -1,12 +1,14 @@
 package com.annalubawa.reposearchapp.ui
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
@@ -19,6 +21,7 @@ import com.annalubawa.reposearchapp.domain.model.Commit
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_repository_details.*
 
+
 @AndroidEntryPoint
 class RepositoryDetailsFragment : Fragment() {
 
@@ -28,8 +31,10 @@ class RepositoryDetailsFragment : Fragment() {
 
     private val args: RepositoryDetailsFragmentArgs by navArgs()
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
 
         binding = DataBindingUtil.inflate(
             inflater,
@@ -69,18 +74,27 @@ class RepositoryDetailsFragment : Fragment() {
         }
 
         viewOnlineButton.setOnClickListener {
-
+            val url = viewModel.githubRepo.repoUrl
+            val viewOnlineIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+            if (viewOnlineIntent.resolveActivity(requireActivity().packageManager) != null) {
+                startActivity(viewOnlineIntent)
+            }
         }
 
         shareButton.setOnClickListener {
-
+            val intent = Intent()
+            intent.action = Intent.ACTION_SEND
+            intent.putExtra(Intent.EXTRA_SUBJECT, viewModel.githubRepo.name);
+            intent.putExtra(Intent.EXTRA_TEXT, viewModel.githubRepo.repoUrl)
+            intent.type = "text/plain"
+            startActivity(Intent.createChooser(intent,"Share repository to:"))
         }
     }
 
     private fun initObservers() {
         viewModel.commits.observe(viewLifecycleOwner, Observer {
             var position = 1
-            for(commit in it) {
+            for (commit in it) {
                 addCommitToList(commitsLiinearLayout, commit, position)
                 position++
             }
@@ -89,7 +103,11 @@ class RepositoryDetailsFragment : Fragment() {
 
     private fun addCommitToList(layout: LinearLayout, commit: Commit, position: Int) {
         val inflater = LayoutInflater.from(layout.context)
-        val binding: CommitListItemLayoutBinding = CommitListItemLayoutBinding.inflate(inflater, layout, true)
+        val binding: CommitListItemLayoutBinding = CommitListItemLayoutBinding.inflate(
+            inflater,
+            layout,
+            true
+        )
 
         binding.commitNumTextView.text = "$position"
 
