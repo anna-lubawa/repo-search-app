@@ -17,12 +17,7 @@ import com.annalubawa.reposearchapp.domain.model.Repository
 import com.annalubawa.reposearchapp.ui.adapters.RepositoriesRecyclerViewAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_repository_search.*
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.FlowPreview
 
-
-@FlowPreview
-@ExperimentalCoroutinesApi
 @AndroidEntryPoint
 class RepositorySearchFragment : Fragment() {
 
@@ -39,6 +34,8 @@ class RepositorySearchFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        requireActivity().window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
 
         viewModel = ViewModelProvider(this).get(RepositorySearchViewModel::class.java)
         navController = Navigation.findNavController(view)

@@ -9,4 +9,10 @@
     <string name="number_of_repository_stars">Number of repository stars</string>
     <string name="forward_icon_in_repositories_list_item">Forward icon in repositories list item</string>
     <string name="no_results_found">No results found.</string>
+    <string name="repo_by">REPO BY</string>
+    <string name="back_arrow">Back arrow</string>
+    <string name="back">Back</string>
+    <string name="commits_history">Commits History</string>
+    <string name="view_online">View online</string>
+    <string name="share_repo">Share Repo</string>
 </resources>
