@@ -15,4 +15,8 @@
     <string name="commits_history">Commits History</string>
     <string name="view_online">View online</string>
     <string name="share_repo">Share Repo</string>
+    <string name="search">Search</string>
+    <string name="repositories">Repositories</string>
+    <string name="share_repository_button">Share repository button</string>
+    <string name="share_icon">Share icon</string>
 </resources>

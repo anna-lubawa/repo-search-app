@@ -10,7 +10,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary">
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/detailsLayout"
@@ -184,6 +185,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="92dp"
+        android:contentDescription="@string/share_repository_button"
         android:src="@drawable/share_button_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -210,13 +212,12 @@
         android:layout_height="18dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="9dp"
+        android:contentDescription="@string/share_icon"
         android:letterSpacing="-0.02"
         android:lineSpacingExtra="5sp"
         android:src="@drawable/ic_share_icon"
         app:layout_constraintEnd_toStartOf="@+id/shareTextView"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toEndOf="@+id/shareButton"
         app:layout_constraintStart_toStartOf="@+id/shareButton"
         app:layout_constraintTop_toTopOf="@+id/shareButton" />
 
