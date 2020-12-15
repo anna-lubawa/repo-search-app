@@ -12,6 +12,7 @@
 - ViewModel & LiveData
 - Data Binding
 - Retrofit & Glide
+- Hilt
 
 </br><strong>App preview:</strong></br>
 <p align="center">
